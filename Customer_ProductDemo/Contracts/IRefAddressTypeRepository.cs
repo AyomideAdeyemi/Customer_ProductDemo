@@ -9,9 +9,9 @@ namespace Customer_ProductDemo.Application.Contracts
 {
     public interface IRefAddressTypeRepository
     {
-        Task<IEnumerable<Customer>> GetAllAsync(bool trackChanges);
-        Task<Customer> GetCustomerByName(string FirstName, string LastName, bool trackChanges);
-        void CreateCustomer(Customer entity);
-        void DeleteCustomer(Customer entity);
+        Task<IEnumerable<RefAddressType>> GetAllAsync(bool trackChanges);
+        Task<RefAddressType> GetCustomerByRefAddressTypeId(int Id, bool trackChanges);
+        void CreateRefAddressType(RefAddressType entity);
+        void DeleteRefAddressType(RefAddressType entity);
     }
 }

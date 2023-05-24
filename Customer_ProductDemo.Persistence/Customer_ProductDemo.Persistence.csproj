@@ -16,8 +16,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Common\" />
     <Folder Include="Repositories\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Customer_ProductDemo.Domain\Customer_ProductDemo.Domain.csproj" />
+    <ProjectReference Include="..\Customer_ProductDemo\Customer_ProductDemo.Application.csproj" />
   </ItemGroup>
 
 </Project>

@@ -9,7 +9,7 @@ namespace Customer_ProductDemo.Domain.Entities
 {
     public class RefAddressType
     {
-        [Required(ErrorMessage = "Address Type code is a required field.")]
+        [Key]
         public string? AddressTypeCode { get; set; }
 
         [Required(ErrorMessage = "Address is a required field.")]
