@@ -9,7 +9,7 @@ namespace Customer_ProductDemo.Application.Contracts
 {
     public interface ICustomerAddressHistoryRepository
     {
-        Task<IEnumerable<Customer>> GetAllAsync(bool trackChanges);
+        Task<IEnumerable<CustomerAddressHistory>> GetAllAsync(bool trackChanges);
         Task<Customer> GetCustomerByName(string FirstName, string LastName, bool trackChanges);
         void CreateCustomer(Customer entity);
         void DeleteCustomer(Customer entity);

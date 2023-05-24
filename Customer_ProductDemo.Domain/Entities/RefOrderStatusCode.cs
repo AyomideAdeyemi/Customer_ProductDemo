@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,7 +9,8 @@ namespace Customer_ProductDemo.Domain.Entities
 {
     public class RefOrderStatusCode
     {
-        public int OrderStatusCode { get; set; }
+        [Key]
+        public string? OrderStatusCode { get; set; }
         public string? Order_Status_Description { get; set; }
 
     }

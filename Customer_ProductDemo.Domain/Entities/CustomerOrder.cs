@@ -15,7 +15,7 @@ namespace Customer_ProductDemo.Domain.Entities
 
         [Key, Column(Order = 0)]
         [ForeignKey(nameof(Customer))]
-        public int Id { get; set;}
+        public int CustomerId { get; set;}
 
         [Required (ErrorMessage = "order status code is a required field.")]
         public string? OrderStatusCode{ get; set;}
@@ -23,6 +23,6 @@ namespace Customer_ProductDemo.Domain.Entities
 
         [DataType(DataType.Date)]
         public DateTime OrderDate { get; set; }
-
+       
     }
 }

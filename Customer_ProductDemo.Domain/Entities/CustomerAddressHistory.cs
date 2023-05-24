@@ -12,7 +12,7 @@ namespace Customer_ProductDemo.Domain.Entities
     {
         [Key, Column(Order = 0)]
         [ForeignKey(nameof(Customer))]
-        public int Id { get; set; }
+        public int CustomerId { get; set; }
 
         [Key, Column(Order = 1)]
         [ForeignKey(nameof(Address))]
@@ -26,6 +26,6 @@ namespace Customer_ProductDemo.Domain.Entities
 
         [Required(ErrorMessage = " Address type code is a required field.")]
         public string? AddressTypeCode{ get; set; }
-
+       
     }
 }

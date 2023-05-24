@@ -14,6 +14,10 @@ namespace Customer_ProductDemo.Application.Common
         ICustomerAddressHistoryRepository CustomerAddressHistoryRepository { get; }
         IRefOrderStatusCodeRepository RefOrderStatusCodeRepository { get; }
         IRefAddressTypeRepository RefAddressTypeRepository { get; }
+        IAddressRepository  AddressRepository { get; }
+        
+       
+
 
         Task SaveAsync();
 

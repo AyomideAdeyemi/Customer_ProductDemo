@@ -9,7 +9,8 @@ namespace Customer_ProductDemo.Domain.Entities
 {
     public class Customer
     {
-        public int Id { get; set; }
+        [Key]
+        public int CustomerId { get; set; }
 
         public string? PaymentMethodCode { get; set; }
 
