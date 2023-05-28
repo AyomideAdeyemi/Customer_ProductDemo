@@ -9,8 +9,8 @@ namespace Customer_ProductDemo.Application.Contracts
 {
     public interface ICustomerRepository
     {
-        Task<IEnumerable<Customer>> GetAllAsync(bool trackChanges);
-        Task<Customer> GetCustomerByName(string FirstName, string LastName, bool trackChanges);
+        Task<IEnumerable<Customer>> GetAllCustomerAsync(bool trackChanges);
+        Task<Customer> GetCustomerByPhoneAsync(string phone, bool trackChanges);
         void CreateCustomer (Customer entity);
         void DeleteCustomer (Customer entity);
 
