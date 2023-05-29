@@ -1,6 +1,7 @@
 ﻿using Customer_ProductDemo.Application.Contracts;
 using Customer_ProductDemo.Domain.Entities;
 using Customer_ProductDemo.Persistence.Common;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,24 +16,25 @@ namespace Customer_ProductDemo.Persistence.Repositories
         {
         }
 
-        public void CreateCustomer(Customer entity)
+        public void CreateCustomerOrder(CustomerOrder customerOrder)
         {
-            throw new NotImplementedException();
+            Create(customerOrder);
         }
 
-        public void DeleteCustomer(Customer entity)
+        public void DeleteCustomerOrder(CustomerOrder customerOrder) => Delete(customerOrder);
+
+        public async Task<IEnumerable<CustomerOrder>> GetAllCustomerOrderAsync(bool trackChanges)
         {
-            throw new NotImplementedException();
+            return await FindAll(trackChanges)
+                 .OrderBy(x => x.OrderId)
+                 .ToListAsync();
         }
 
-        public Task<IEnumerable<Customer>> GetAllAsync(bool trackChanges)
-        {
-            throw new NotImplementedException();
-        }
+        public async Task<CustomerOrder> GetCustomerOrderByOrderStatusCode(string orderstatuscode, bool trackChanges) => 
+            await FindByCondition(x => x.OrderStatusCode == orderstatuscode, trackChanges).FirstOrDefaultAsync();
+        
 
-        public Task<Customer> GetCustomerByName(string FirstName, string LastName, bool trackChanges)
-        {
-            throw new NotImplementedException();
-        }
+       
     }
 }
+       

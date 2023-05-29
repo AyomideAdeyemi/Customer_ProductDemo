@@ -20,4 +20,8 @@
     <ProjectReference Include="..\Customer_ProductDemo\Customer_ProductDemo.Application.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Extensions\" />
+  </ItemGroup>
+
 </Project>

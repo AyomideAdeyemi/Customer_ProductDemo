@@ -1,6 +1,7 @@
 ﻿using Customer_ProductDemo.Application.Contracts;
 using Customer_ProductDemo.Domain.Entities;
 using Customer_ProductDemo.Persistence.Common;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,30 +11,29 @@ using System.Threading.Tasks;
 namespace Customer_ProductDemo.Persistence.Repositories
 {
     internal sealed class AddressRepository : RepositoryBase<Address>, IAddressRepository
-
     {
         public AddressRepository(RepositoryContext repositoryContext) : base(repositoryContext)
         {
         }
 
-        public void CreateAddress(Address entity)
+        public void CreateAddress(Address address)
         {
-            throw new NotImplementedException();
+            Create(address);
         }
 
-        public void DeleteAddress(Address entity)
-        {
-            throw new NotImplementedException();
-        }
+        public void DeleteAddress(Address address) => Delete(address);
 
-        public Task<Address> GetAddressByAddressId(int Id, bool trackChanges)
-        {
-            throw new NotImplementedException();
-        }
 
-        public Task<IEnumerable<Address>> GetAllAddressAsync(bool trackChanges)
+        public async Task<Address> GetAddressByStreetNameAsync(string streetName, bool trackChanges) =>
+        
+            await FindByCondition(x => x.StreetName==streetName, trackChanges).FirstOrDefaultAsync();
+        
+
+        public async Task<IEnumerable<Address>> GetAllAddressAsync(bool trackChanges)
         {
-            throw new NotImplementedException();
+            return await FindAll(trackChanges)
+                .OrderBy(x => x.AddressId)
+                .ToListAsync();
         }
     }
 }

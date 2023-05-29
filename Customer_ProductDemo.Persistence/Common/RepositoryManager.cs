@@ -22,24 +22,21 @@ namespace Customer_ProductDemo.Persistence.Common
             _repositoryContext = repositoryContext;
             _customerRepository = new Lazy<ICustomerRepository>(() => new CustomerRepository(repositoryContext));
             _customerOrderRepository = new Lazy<ICustomerOrderRepository>(() => new CustomerOrderRepository(repositoryContext));
-            _customerAddressHistoryRepository = new Lazy<ICustomerAddressHistoryRepository>(() => new CustomerAddressHistoryRepository(repositoryContext));
-            _addressRepository = new Lazy<IAddressRepository>(() => new AddressRepository);
+           // _customerAddressHistoryRepository = new Lazy<ICustomerAddressHistoryRepository>(() => new CustomerAddressHistoryRepository(repositoryContext));
+            _addressRepository = new Lazy<IAddressRepository>(() => new AddressRepository(repositoryContext));
         }
         public ICustomerRepository CustomerRepository => _customerRepository.Value;
 
         public ICustomerOrderRepository CustomerOrderRepository => _customerOrderRepository.Value;
 
-        public ICustomerAddressHistoryRepository CustomerAddressHistoryRepository => throw new NotImplementedException();
+        //public ICustomerAddressHistoryRepository CustomerAddressHistoryRepository => throw new NotImplementedException();
 
-        public IRefOrderStatusCodeRepository RefOrderStatusCodeRepository => throw new NotImplementedException();
+        //public IRefOrderStatusCodeRepository RefOrderStatusCodeRepository => throw new NotImplementedException();
 
-        public IRefAddressTypeRepository RefAddressTypeRepository => throw new NotImplementedException();
+        //public IRefAddressTypeRepository RefAddressTypeRepository => throw new NotImplementedException();
 
-        public IAddressRepository AddressRepository => throw new NotImplementedException();
+        public IAddressRepository AddressRepository => _addressRepository.Value;
 
-        public async Task SaveAsync()
-        {
-           await _repositoryContext.SaveChangesAsync();
-        }
+        public async Task SaveAsync() => await _repositoryContext.SaveChangesAsync();
     }
 }

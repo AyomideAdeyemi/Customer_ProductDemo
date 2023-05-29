@@ -11,8 +11,8 @@ namespace Customer_ProductDemo.Application.Contracts
     {
         Task<IEnumerable<Customer>> GetAllCustomerAsync(bool trackChanges);
         Task<Customer> GetCustomerByPhoneAsync(string phone, bool trackChanges);
-        void CreateCustomer (Customer entity);
-        void DeleteCustomer (Customer entity);
+        void CreateCustomer (Customer customer);
+        void DeleteCustomer (Customer customer);
 
     }
 }
