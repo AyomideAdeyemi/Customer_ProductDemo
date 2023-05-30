@@ -10,7 +10,7 @@ namespace Customer_ProductDemo.Application.Contracts
     public interface ICustomerOrderRepository
     {
         Task<IEnumerable<CustomerOrder>> GetAllCustomerOrderAsync(bool trackChanges);
-        Task<CustomerOrder> GetCustomerOrderByOrderStatusCode(string  orderstatuscode, bool trackChanges);
+        Task<CustomerOrder> GetCustomerOrderByOrderId(int orderId, bool trackChanges);
         void CreateCustomerOrder(CustomerOrder customerOrder);
         void DeleteCustomerOrder(CustomerOrder customerOrder);
     }

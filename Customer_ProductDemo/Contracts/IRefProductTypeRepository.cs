@@ -7,9 +7,8 @@ using System.Threading.Tasks;
 
 namespace Customer_ProductDemo.Application.Contracts
 {
-    public interface IRefAddressTypeRepository
+    public interface IRefProductTypeRepository
     {
-        Task<IEnumerable<RefAddressType>> GetAllAsync(bool trackChanges);
-        
+        Task<IEnumerable<RefProductType>> GetAllAsync(bool trackChanges);
     }
 }

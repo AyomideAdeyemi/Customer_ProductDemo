@@ -10,10 +10,8 @@ namespace Customer_ProductDemo.Application.Contracts
     public interface IRefOrderStatusCodeRepository
     {
 
-        Task<IEnumerable<Customer>> GetAllAsync(bool trackChanges);
-        Task<Customer> GetCustomerByName(string FirstName, string LastName, bool trackChanges);
-        void CreateCustomer(Customer entity);
-        void DeleteCustomer(Customer entity);
+        Task<IEnumerable<RefOrderStatusCode>> GetAllAsync(bool trackChanges);
+        
 
 
     }
