@@ -30,8 +30,8 @@ namespace Customer_ProductDemo.Persistence.Repositories
                  .ToListAsync();
         }
 
-        public async Task<CustomerOrder> GetCustomerOrderByOrderStatusCode(string orderstatuscode, bool trackChanges) => 
-            await FindByCondition(x => x.OrderStatusCode == orderstatuscode, trackChanges).FirstOrDefaultAsync();
+        public async Task<CustomerOrder> GetCustomerOrderByOrderId(int orderId, bool trackChanges) => 
+            await FindByCondition(x => x.OrderId == orderId, trackChanges).FirstOrDefaultAsync();
         
 
        
