@@ -23,7 +23,7 @@ namespace Customer_ProductDemo.WebAPi.Extensions
         public static void ConfigureLoggerService(this IServiceCollection Services) => Services.AddSingleton<ILoggerManager, LoggerManager>();
         public static void ConfigureRepositoryManager(this IServiceCollection services) => services.AddScoped<IRepositoryManager, RepositoryManager>();
         public static void ConfigureServiceManager(this IServiceCollection services) => services.AddScoped<IServiceManager, ServiceManager>();
-        public static void ConfigureSQLContext(IServiceCollection services, IConfiguration configuration) => services.AddDbContext<RepositoryContext>(opt =>
+        public static void ConfigureSQLContext(this IServiceCollection services, IConfiguration configuration) => services.AddDbContext<RepositoryContext>(opt =>
                                                                                                                       opt.UseSqlServer(configuration.GetConnectionString("sqlConnection")));
     }
 }

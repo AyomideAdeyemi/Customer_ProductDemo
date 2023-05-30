@@ -26,6 +26,6 @@ namespace Customer_ProductDemo.Domain.Entities
 
         [Required(ErrorMessage = " Address type code is a required field.")]
         public string? AddressTypeCode{ get; set; }
-       
+        
     }
 }

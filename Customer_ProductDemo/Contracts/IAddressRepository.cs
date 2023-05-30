@@ -10,7 +10,7 @@ namespace Customer_ProductDemo.Application.Contracts
     public interface IAddressRepository
     {
         Task<IEnumerable<Address>> GetAllAddressAsync(bool trackChanges);
-        Task<Address> GetAddressByStreetNameAsync(string streetName, bool trackChanges);
+        Task<Address> GetAddressByNameAsync(string streetName, string arealocality, bool trackChanges);
         void CreateAddress(Address address);
         void DeleteAddress(Address address);
     }

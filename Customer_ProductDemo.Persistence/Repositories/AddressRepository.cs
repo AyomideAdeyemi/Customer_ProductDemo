@@ -24,7 +24,7 @@ namespace Customer_ProductDemo.Persistence.Repositories
         public void DeleteAddress(Address address) => Delete(address);
 
 
-        public async Task<Address> GetAddressByStreetNameAsync(string streetName, bool trackChanges) =>
+        public async Task<Address> GetAddressByNameAsync(string streetName, string arealocality, bool trackChanges) =>
         
             await FindByCondition(x => x.StreetName==streetName, trackChanges).FirstOrDefaultAsync();
         
