@@ -13,5 +13,6 @@ namespace Customer_ProductDemo.Domain.Entities
         public string? OrderStatusCode { get; set; }
         public string? Order_Status_Description { get; set; }
 
+        public ICollection<RefOrderStatusCode>? RefOrderStatusCodes { get; set; }
     }
 }

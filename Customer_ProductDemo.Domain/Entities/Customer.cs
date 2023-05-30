@@ -28,6 +28,10 @@ namespace Customer_ProductDemo.Domain.Entities
         [DataType (DataType.EmailAddress)]
         public string? Email { get; set; }
 
+        public RefPaymentMethod? RefPaymentMethod { get; set; }
 
+        public ICollection<CustomerAddressHistory>? CustomerAddressHistories { get; set; }
+
+        public ICollection<CustomerOrder>? CustomerOrders { get; set; }
     }
 }

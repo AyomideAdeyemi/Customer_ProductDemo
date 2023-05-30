@@ -23,6 +23,9 @@ namespace Customer_ProductDemo.Domain.Entities
 
         [DataType(DataType.Date)]
         public DateTime OrderDate { get; set; }
-       
+
+        public RefOrderStatusCode? RefOrderStatusCode { get; set; }
+
+        public ICollection<OrderItem>? OrderItems { get; set; }
     }
 }

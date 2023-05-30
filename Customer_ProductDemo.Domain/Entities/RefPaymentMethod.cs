@@ -9,5 +9,7 @@ namespace Customer_ProductDemo.Domain.Entities
         [Key]
         public string? PaymentMethodeCode { get; set; }
         public string? PaymentMethodDescription { get; set; }
+
+        public ICollection<Customer>? Customers { get; set; }
     }
 }

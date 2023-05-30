@@ -13,5 +13,9 @@ namespace Customer_ProductDemo.Domain.Entities
         public string? ProductTypeCode { get; set; }
         public string? ProductName { get; set; }
         public string? ProductPrice { get; set;}
+
+        public RefProductType? RefProductType { get; set; }
+        
+        public ICollection<OrderItem>? OrderItems { get; set; }
     }
 }

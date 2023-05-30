@@ -23,5 +23,7 @@ namespace Customer_ProductDemo.Domain.Entities
         [Required(ErrorMessage = "State is a required field")]
         [MaxLength(50)]
         public string? State { get; set; }
+
+        public ICollection<CustomerAddressHistory>? CustomerAddressHistories { get; set; }
     }
 }

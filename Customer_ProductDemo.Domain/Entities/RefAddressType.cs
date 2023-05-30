@@ -16,5 +16,6 @@ namespace Customer_ProductDemo.Domain.Entities
         [MaxLength(100)]
         public string? Address { get; set; }
 
+        public ICollection<CustomerAddressHistory>? CustomerAddressHistories { get; set; }
     }
 }

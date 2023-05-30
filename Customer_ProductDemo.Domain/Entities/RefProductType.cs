@@ -7,5 +7,7 @@ namespace Customer_ProductDemo.Domain.Entities
         [Key]
         public string? ProductTypeCode {get; set; }
         public string? ProductTypeDescription { get; set;}
+
+        public ICollection<Product>? Products { get; set; }
     }
 }
