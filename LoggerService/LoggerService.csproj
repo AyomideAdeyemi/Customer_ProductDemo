@@ -7,11 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
+    <PackageReference Include="NLog.Extensions.Logging" Version="5.2.5" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Customer_ProductDemo.ServiceContract\Customer_ProductDemo.ServiceContract.csproj" />
+    <ProjectReference Include="..\Customer_ProductDemo\Customer_ProductDemo.Application.csproj" />
   </ItemGroup>
 
 </Project>

@@ -7,8 +7,24 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="7.0.5" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.5" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.5" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.5">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Customer_ProductDemo.Domain\Customer_ProductDemo.Domain.csproj" />
+    <ProjectReference Include="..\Customer_ProductDemo.Persistence\Customer_ProductDemo.Persistence.csproj" />
+    <ProjectReference Include="..\Customer_ProductDemo.ServiceContract\Customer_ProductDemo.ServiceContract.csproj" />
+    <ProjectReference Include="..\Customer_ProductDemo.ServiceRepository\Customer_ProductDemo.ServiceRepository.csproj" />
+    <ProjectReference Include="..\Customer_ProductDemo\Customer_ProductDemo.Application.csproj" />
+    <ProjectReference Include="..\LoggerService\LoggerService.csproj" />
   </ItemGroup>
 
 </Project>

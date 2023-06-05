@@ -11,17 +11,19 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastru
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{706627BC-FCE5-4FF8-AB1A-AE1D4EA909CE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Customer_ProductDemo.Domain", "Customer_ProductDemo.Domain\Customer_ProductDemo.Domain.csproj", "{5F3DCBC3-E957-4F43-A0EE-4D1BA3EBB1E3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Customer_ProductDemo.Domain", "Customer_ProductDemo.Domain\Customer_ProductDemo.Domain.csproj", "{5F3DCBC3-E957-4F43-A0EE-4D1BA3EBB1E3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Customer_ProductDemo.Application", "Customer_ProductDemo\Customer_ProductDemo.Application.csproj", "{C8813509-2A2E-4A9F-9901-963240B4BEC9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Customer_ProductDemo.Application", "Customer_ProductDemo\Customer_ProductDemo.Application.csproj", "{C8813509-2A2E-4A9F-9901-963240B4BEC9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Customer_ProductDemo.Persistence", "Customer_ProductDemo.Persistence\Customer_ProductDemo.Persistence.csproj", "{EF2CA0EB-C24A-418C-A5B6-BD171D31B4EC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Customer_ProductDemo.Persistence", "Customer_ProductDemo.Persistence\Customer_ProductDemo.Persistence.csproj", "{EF2CA0EB-C24A-418C-A5B6-BD171D31B4EC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Customer_ProductDemo.ServiceRepository", "Customer_ProductDemo.ServiceRepository\Customer_ProductDemo.ServiceRepository.csproj", "{CEBE5087-81F3-4FE5-A6A9-587013A7ABD2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Customer_ProductDemo.ServiceRepository", "Customer_ProductDemo.ServiceRepository\Customer_ProductDemo.ServiceRepository.csproj", "{CEBE5087-81F3-4FE5-A6A9-587013A7ABD2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Customer_ProductDemo.ServiceContract", "Customer_ProductDemo.ServiceContract\Customer_ProductDemo.ServiceContract.csproj", "{7F87B414-84B4-4867-9642-F6FC83541721}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Customer_ProductDemo.ServiceContract", "Customer_ProductDemo.ServiceContract\Customer_ProductDemo.ServiceContract.csproj", "{7F87B414-84B4-4867-9642-F6FC83541721}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Customer_ProductDemo.WebAPi", "Customer_ProductDemo.WebAPi\Customer_ProductDemo.WebAPi.csproj", "{0F47E268-2706-46D9-8313-375A80A5F9F1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Customer_ProductDemo.WebAPi", "Customer_ProductDemo.WebAPi\Customer_ProductDemo.WebAPi.csproj", "{0F47E268-2706-46D9-8313-375A80A5F9F1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoggerService", "LoggerService\LoggerService.csproj", "{D45C99F1-FE4F-4828-82DF-D917E10640F4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -53,6 +55,10 @@ Global
 		{0F47E268-2706-46D9-8313-375A80A5F9F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0F47E268-2706-46D9-8313-375A80A5F9F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0F47E268-2706-46D9-8313-375A80A5F9F1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D45C99F1-FE4F-4828-82DF-D917E10640F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D45C99F1-FE4F-4828-82DF-D917E10640F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D45C99F1-FE4F-4828-82DF-D917E10640F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D45C99F1-FE4F-4828-82DF-D917E10640F4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -67,6 +73,7 @@ Global
 		{CEBE5087-81F3-4FE5-A6A9-587013A7ABD2} = {3EF6B677-A33E-403F-9BD4-DCB23B871CC8}
 		{7F87B414-84B4-4867-9642-F6FC83541721} = {3EF6B677-A33E-403F-9BD4-DCB23B871CC8}
 		{0F47E268-2706-46D9-8313-375A80A5F9F1} = {706627BC-FCE5-4FF8-AB1A-AE1D4EA909CE}
+		{D45C99F1-FE4F-4828-82DF-D917E10640F4} = {DD9BE1CD-BE9C-4BB4-B787-226621DE28FE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0C106BB1-94C1-4C96-A6B2-DD509EF12E86}
