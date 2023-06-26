@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Customer_ProductDemo.Persistence.Migrations
 {
     [DbContext(typeof(RepositoryContext))]
-    [Migration("20230524200455_FirstDatabaseCreation")]
-    partial class FirstDatabaseCreation
+    [Migration("20230620105029_initialMigration")]
+    partial class initialMigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -85,7 +85,12 @@ namespace Customer_ProductDemo.Persistence.Migrations
                     b.Property<string>("PhoneNumber")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("RefPaymentMethodPaymentMethodeCode")
+                        .HasColumnType("nvarchar(450)");
+
                     b.HasKey("CustomerId");
+
+                    b.HasIndex("RefPaymentMethodPaymentMethodeCode");
 
                     b.ToTable("Customers");
                 });
@@ -110,7 +115,14 @@ namespace Customer_ProductDemo.Persistence.Migrations
                     b.Property<DateTime>("DateTo")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("RefAddressTypeAddressTypeCode")
+                        .HasColumnType("nvarchar(450)");
+
                     b.HasKey("CustomerId", "AddressId");
+
+                    b.HasIndex("AddressId");
+
+                    b.HasIndex("RefAddressTypeAddressTypeCode");
 
                     b.ToTable("CustomerAddressHistories");
                 });
@@ -118,8 +130,7 @@ namespace Customer_ProductDemo.Persistence.Migrations
             modelBuilder.Entity("Customer_ProductDemo.Domain.Entities.CustomerOrder", b =>
                 {
                     b.Property<int>("CustomerId")
-                        .HasColumnType("int")
-                        .HasColumnOrder(0);
+                        .HasColumnType("int");
 
                     b.Property<int>("OrderId")
                         .HasColumnType("int");
@@ -128,10 +139,11 @@ namespace Customer_ProductDemo.Persistence.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("OrderStatusCode")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("CustomerId", "OrderId");
+
+                    b.HasIndex("OrderStatusCode");
 
                     b.ToTable("CustomerOrders");
                 });
@@ -144,19 +156,28 @@ namespace Customer_ProductDemo.Persistence.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("OrderItemId"));
 
-                    b.Property<int>("MyProperty")
+                    b.Property<int?>("CustomerOrderCustomerId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("CustomerOrderOrderId")
                         .HasColumnType("int");
 
                     b.Property<int>("OrderId")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnOrder(1);
 
                     b.Property<int>("OrderQuantity")
                         .HasColumnType("int");
 
-                    b.Property<int>("ProudctId")
-                        .HasColumnType("int");
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int")
+                        .HasColumnOrder(2);
 
                     b.HasKey("OrderItemId");
+
+                    b.HasIndex("ProductId");
+
+                    b.HasIndex("CustomerOrderCustomerId", "CustomerOrderOrderId");
 
                     b.ToTable("OrderItems");
                 });
@@ -176,9 +197,11 @@ namespace Customer_ProductDemo.Persistence.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ProductTypeCode")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("ProductId");
+
+                    b.HasIndex("ProductTypeCode");
 
                     b.ToTable("Products");
                 });
@@ -206,7 +229,12 @@ namespace Customer_ProductDemo.Persistence.Migrations
                     b.Property<string>("Order_Status_Description")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("RefOrderStatusCodeOrderStatusCode")
+                        .HasColumnType("nvarchar(450)");
+
                     b.HasKey("OrderStatusCode");
+
+                    b.HasIndex("RefOrderStatusCodeOrderStatusCode");
 
                     b.ToTable("RefOrderStatusCodes");
                 });
@@ -235,6 +263,128 @@ namespace Customer_ProductDemo.Persistence.Migrations
                     b.HasKey("ProductTypeCode");
 
                     b.ToTable("RefproductTypes");
+                });
+
+            modelBuilder.Entity("Customer_ProductDemo.Domain.Entities.Customer", b =>
+                {
+                    b.HasOne("Customer_ProductDemo.Domain.Entities.RefPaymentMethod", "RefPaymentMethod")
+                        .WithMany("Customers")
+                        .HasForeignKey("RefPaymentMethodPaymentMethodeCode");
+
+                    b.Navigation("RefPaymentMethod");
+                });
+
+            modelBuilder.Entity("Customer_ProductDemo.Domain.Entities.CustomerAddressHistory", b =>
+                {
+                    b.HasOne("Customer_ProductDemo.Domain.Entities.Address", "Address")
+                        .WithMany("CustomerAddressHistories")
+                        .HasForeignKey("AddressId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Customer_ProductDemo.Domain.Entities.Customer", "Customer")
+                        .WithMany("CustomerAddressHistories")
+                        .HasForeignKey("CustomerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Customer_ProductDemo.Domain.Entities.RefAddressType", null)
+                        .WithMany("CustomerAddressHistories")
+                        .HasForeignKey("RefAddressTypeAddressTypeCode");
+
+                    b.Navigation("Address");
+
+                    b.Navigation("Customer");
+                });
+
+            modelBuilder.Entity("Customer_ProductDemo.Domain.Entities.CustomerOrder", b =>
+                {
+                    b.HasOne("Customer_ProductDemo.Domain.Entities.Customer", "Customer")
+                        .WithMany("CustomerOrders")
+                        .HasForeignKey("CustomerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Customer_ProductDemo.Domain.Entities.RefOrderStatusCode", "RefOrderStatusCode")
+                        .WithMany()
+                        .HasForeignKey("OrderStatusCode");
+
+                    b.Navigation("Customer");
+
+                    b.Navigation("RefOrderStatusCode");
+                });
+
+            modelBuilder.Entity("Customer_ProductDemo.Domain.Entities.OrderItem", b =>
+                {
+                    b.HasOne("Customer_ProductDemo.Domain.Entities.Product", "Product")
+                        .WithMany("OrderItems")
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Customer_ProductDemo.Domain.Entities.CustomerOrder", null)
+                        .WithMany("OrderItem")
+                        .HasForeignKey("CustomerOrderCustomerId", "CustomerOrderOrderId");
+
+                    b.Navigation("Product");
+                });
+
+            modelBuilder.Entity("Customer_ProductDemo.Domain.Entities.Product", b =>
+                {
+                    b.HasOne("Customer_ProductDemo.Domain.Entities.RefProductType", "RefProductType")
+                        .WithMany("Products")
+                        .HasForeignKey("ProductTypeCode");
+
+                    b.Navigation("RefProductType");
+                });
+
+            modelBuilder.Entity("Customer_ProductDemo.Domain.Entities.RefOrderStatusCode", b =>
+                {
+                    b.HasOne("Customer_ProductDemo.Domain.Entities.RefOrderStatusCode", null)
+                        .WithMany("RefOrderStatusCodes")
+                        .HasForeignKey("RefOrderStatusCodeOrderStatusCode");
+                });
+
+            modelBuilder.Entity("Customer_ProductDemo.Domain.Entities.Address", b =>
+                {
+                    b.Navigation("CustomerAddressHistories");
+                });
+
+            modelBuilder.Entity("Customer_ProductDemo.Domain.Entities.Customer", b =>
+                {
+                    b.Navigation("CustomerAddressHistories");
+
+                    b.Navigation("CustomerOrders");
+                });
+
+            modelBuilder.Entity("Customer_ProductDemo.Domain.Entities.CustomerOrder", b =>
+                {
+                    b.Navigation("OrderItem");
+                });
+
+            modelBuilder.Entity("Customer_ProductDemo.Domain.Entities.Product", b =>
+                {
+                    b.Navigation("OrderItems");
+                });
+
+            modelBuilder.Entity("Customer_ProductDemo.Domain.Entities.RefAddressType", b =>
+                {
+                    b.Navigation("CustomerAddressHistories");
+                });
+
+            modelBuilder.Entity("Customer_ProductDemo.Domain.Entities.RefOrderStatusCode", b =>
+                {
+                    b.Navigation("RefOrderStatusCodes");
+                });
+
+            modelBuilder.Entity("Customer_ProductDemo.Domain.Entities.RefPaymentMethod", b =>
+                {
+                    b.Navigation("Customers");
+                });
+
+            modelBuilder.Entity("Customer_ProductDemo.Domain.Entities.RefProductType", b =>
+                {
+                    b.Navigation("Products");
                 });
 #pragma warning restore 612, 618
         }

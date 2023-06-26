@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Customer_ProductDemo.Application.DTOs
+namespace Customer_ProductDemo.Application.DTOs.Customer
 {
     public class CustomerForCreationDto
     {

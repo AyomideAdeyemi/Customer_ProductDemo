@@ -1,4 +1,4 @@
-﻿using Customer_ProductDemo.Application.DTOs;
+﻿using Customer_ProductDemo.Application.DTOs.Customer;
 using System;
 using System.Collections.Generic;
 using System.Linq;

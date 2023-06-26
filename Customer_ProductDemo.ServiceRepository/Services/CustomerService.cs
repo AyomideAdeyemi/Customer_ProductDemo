@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using Customer_ProductDemo.Application.Common;
-using Customer_ProductDemo.Application.DTOs;
+using Customer_ProductDemo.Application.DTOs.Customer;
 using Customer_ProductDemo.Domain.Entities;
 using Customer_ProductDemo.ServiceContract.Interfaces;
 using System;

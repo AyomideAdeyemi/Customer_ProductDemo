@@ -12,7 +12,7 @@ namespace Customer_ProductDemo.Persistence.Repositories
 {
     internal sealed class CustomerRepository : RepositoryBase<Customer>, ICustomerRepository
     {
-        public CustomerRepository(RepositoryContext repositoryContext): base(repositoryContext)
+        public CustomerRepository(RepositoryContext repositoryContext): base(repositoryContext) 
         {
            
         }

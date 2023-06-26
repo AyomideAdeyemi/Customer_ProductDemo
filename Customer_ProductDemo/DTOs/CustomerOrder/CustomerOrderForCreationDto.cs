@@ -1,15 +1,17 @@
-﻿using System;
+﻿using Customer_ProductDemo.Domain.Entities;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Customer_ProductDemo.Domain.Entities
+namespace Customer_ProductDemo.Application.DTOs.CustomerOrder
 {
-    public class CustomerOrder
+    internal class CustomerOrderForCreationDto
     {
+
         [Key]
         public int OrderId { get; set; }
 
@@ -21,12 +23,5 @@ namespace Customer_ProductDemo.Domain.Entities
 
         [DataType(DataType.Date)]
         public DateTime OrderDate { get; set; }
-
-
-        public Customer? Customer { get; set; }
-        public RefOrderStatusCode? RefOrderStatusCode { get; set; }
-
-        public ICollection<OrderItem>? OrderItem { get; set; }
-
     }
 }

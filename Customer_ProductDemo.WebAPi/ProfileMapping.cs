@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using Customer_ProductDemo.Application.DTOs;
+using Customer_ProductDemo.Application.DTOs.Customer;
 using Customer_ProductDemo.Domain.Entities;
 
 namespace Customer_ProductDemo.WebAPi

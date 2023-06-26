@@ -1,9 +1,14 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace Customer_ProductDemo.Domain.Entities
+namespace Customer_ProductDemo.Application.DTOs.OrderItem
 {
-    public class OrderItem
+    public class OrderItemForUpdateDto
     {
         [Key]
         public int OrderItemId { get; set; }
@@ -15,11 +20,9 @@ namespace Customer_ProductDemo.Domain.Entities
         [ForeignKey(nameof(Product))]
         [Column(Order = 2)]
         public int ProductId { get; set; }
-      
+
         public int OrderQuantity { get; set; }
 
-        public Product? Product { get; set; }
-
-        //public CustomerOrder? CustomerOrder { get; set; }
+       
     }
 }

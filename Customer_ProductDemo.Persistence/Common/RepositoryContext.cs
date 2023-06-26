@@ -20,6 +20,8 @@ namespace Customer_ProductDemo.Persistence.Common
             modelBuilder.Entity<CustomerOrder>()
                 .HasKey(vm => new { vm.CustomerId, vm.OrderId });
 
+
+
             base.OnModelCreating(modelBuilder);
         }
         

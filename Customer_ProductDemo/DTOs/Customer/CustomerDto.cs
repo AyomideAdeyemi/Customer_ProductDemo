@@ -5,17 +5,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Customer_ProductDemo.Application.DTOs
+namespace Customer_ProductDemo.Application.DTOs.Customer
 {
-    public class CustomerForUpdateDto
+    public class CustomerDto
     {
-        [Key]
+
         public int CustomerId { get; set; }
 
-        [DataType(DataType.PhoneNumber)]
+        public string? PaymentMethodCode { get; set; }
+        public string? FirstName { get; set; }
+
+        public string? LastName { get; set; }
         public string? PhoneNumber { get; set; }
 
-        [DataType(DataType.EmailAddress)]
+
         public string? Email { get; set; }
     }
 }

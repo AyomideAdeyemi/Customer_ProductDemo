@@ -11,14 +11,12 @@ namespace Customer_ProductDemo.Application.Common
     {
         ICustomerRepository CustomerRepository { get; }
         ICustomerOrderRepository CustomerOrderRepository { get; }
-        //ICustomerAddressHistoryRepository CustomerAddressHistoryRepository { get; }
-        //IRefOrderStatusCodeRepository RefOrderStatusCodeRepository { get; }
-        //IRefAddressTypeRepository RefAddressTypeRepository { get; }
+        ICustomerAddressHistoryRepository CustomerAddressHistoryRepository { get; }
+        IOrderItemRepository OrderItemRepository { get; }
         IAddressRepository  AddressRepository { get; }
+        IProductRepository ProductRepository { get; }
         
-       
-
-
+             
         Task SaveAsync();
 
 
